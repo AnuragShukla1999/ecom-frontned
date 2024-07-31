@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
 
@@ -12,6 +13,10 @@ const Navbar = () => {
     const OpenSideBar = () => {
         setOpenSidebar(prev => !prev);
         console.log("side bar is opened")
+    };
+
+    const closeSidebar = () => {
+        setOpenSidebar(false);
     };
 
 
@@ -45,7 +50,7 @@ const Navbar = () => {
 
                 <div className='relative'>
                     <FaShoppingCart className='text-2xl' />
-                    <span className='bg-red-500 w-4 rounded-xl absolute bottom-4 left-4 '>2</span>
+                    <span className='bg-red-500 w-6 text-white rounded-xl absolute bottom-4 left-4 flex items-center justify-center'>2</span>
                 </div>
 
                 <div>
@@ -55,16 +60,7 @@ const Navbar = () => {
 
             {/* Sidebar */}
             {openSidebar && (
-                <div className='fixed top-0 left-0 w-64 h-full bg-gray-800 text-white p-4'>
-                    <h2 className='text-xl mb-4'>Sidebar</h2>
-                    <button onClick={OpenSideBar} className='text-white text-2xl'>Close</button>
-                    <ul className='mt-4'>
-                        <li className='mb-2'><a href='#'>Home</a></li>
-                        <li className='mb-2'><a href='#'>Products</a></li>
-                        <li className='mb-2'><a href='#'>Contact</a></li>
-                        {/* Add more sidebar links as needed */}
-                    </ul>
-                </div>
+                <Sidebar closeSidebar={closeSidebar} />
             )}
         </div>
     )
