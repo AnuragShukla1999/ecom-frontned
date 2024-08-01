@@ -32,14 +32,11 @@ const Navbar = () => {
 
 
     return (
-        <div className='flex flex-row items-center justify-around border-2 border-red-900 p-4'>
+        <div className='flex flex-row items-center justify-evenly p-4'>
 
-            <div onClick={OpenSideBar}>
-                <FaBars />
-            </div>
-
-            <div>
-                <img src="https://cdn.freebiesupply.com/images/large/2x/google-logo-transparent.png" alt="nike image" className='w-32 h-12' />
+            <div onClick={OpenSideBar} className='flex flex-row items-center justify-center gap-4'>
+                <div><FaBars className='text-2xl' /></div>
+                <div><img src="https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg" alt="nike image" className='w-32 h-12' /></div>
             </div>
 
             <div className='flex flex-row items-center'>
