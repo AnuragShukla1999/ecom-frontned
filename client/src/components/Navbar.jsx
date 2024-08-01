@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { logout } from '../redux/Slices/userSlice';
 
 const Navbar = () => {
 
@@ -24,7 +25,6 @@ const Navbar = () => {
     };
 
 
-    
 
     return (
         <div className='flex flex-row items-center justify-around border-2 border-red-900 p-4'>
@@ -60,13 +60,21 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
-                        <Link to={"/signin"}>
-                            {
-                                isAuthenticated ? "Logout" : "Sign In"
-                            }
-                        </Link>
-                    </button>
+                    {
+                        isAuthenticated ?
+                            <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
+                                Logout
+                            </button>
+                            :
+                            <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
+                                <Link to={"/signin"}>
+                                    Sign In
+                                </Link>
+                            </button>
+                    }
+
+
+
                 </div>
             </div>
 
