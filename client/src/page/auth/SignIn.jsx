@@ -43,6 +43,7 @@ const SignIn = () => {
             dispatch(signin(resData.user))
 
             toast.success("Signed in successfully!");
+            
             navigate("/");
         } catch (error) {
             console.log(error);

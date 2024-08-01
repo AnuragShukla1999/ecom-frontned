@@ -62,10 +62,9 @@ const Navbar = () => {
                 <div>
                     <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
                         <Link to={"/signin"}>
-                            {/* {
+                            {
                                 isAuthenticated ? "Logout" : "Sign In"
-                            } */}
-                            Sign In
+                            }
                         </Link>
                     </button>
                 </div>
