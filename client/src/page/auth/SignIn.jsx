@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { signin } from "../../redux/Slices/userSlice";
 
 
 const SignIn = () => {
@@ -13,12 +15,13 @@ const SignIn = () => {
 
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+
     const { email, password } = formData;
 
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
-
         console.log(e.target.value);
     };
 
@@ -35,7 +38,9 @@ const SignIn = () => {
 
             const resData = await res.json();
 
-            console.log(resData);
+            console.log(resData.user);
+
+            dispatch(signin(resData.user))
 
             toast.success("Signed in successfully!");
             navigate("/");
@@ -76,6 +81,10 @@ const SignIn = () => {
 
             <Link to="/signup">
                 SignUp
+            </Link>
+
+            <Link to="/">
+                Home
             </Link>
         </form>
     );

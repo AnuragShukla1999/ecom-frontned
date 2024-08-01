@@ -4,8 +4,12 @@ import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+    const { isAuthenticated } = useSelector((state) => state.user);
 
     const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -19,6 +23,8 @@ const Navbar = () => {
         setOpenSidebar(false);
     };
 
+
+    
 
     return (
         <div className='flex flex-row items-center justify-around border-2 border-red-900 p-4'>
@@ -54,7 +60,14 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>Logout</button>
+                    <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
+                        <Link to={"/signin"}>
+                            {/* {
+                                isAuthenticated ? "Logout" : "Sign In"
+                            } */}
+                            Sign In
+                        </Link>
+                    </button>
                 </div>
             </div>
 
