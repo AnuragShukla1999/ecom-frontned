@@ -5,11 +5,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/Slices/userSlice';
 
 const Navbar = () => {
 
+    const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state) => state.user);
 
     const [openSidebar, setOpenSidebar] = useState(false);
@@ -24,6 +25,10 @@ const Navbar = () => {
         setOpenSidebar(false);
     };
 
+
+    const logoutFun = () => {
+        dispatch(logout())
+    }
 
 
     return (
@@ -62,7 +67,7 @@ const Navbar = () => {
                 <div>
                     {
                         isAuthenticated ?
-                            <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl'>
+                            <button className='bg-red-600 text-white pr-2 pl-2 pt-1 pb-1 rounded-3xl' onClick={logoutFun}>
                                 Logout
                             </button>
                             :
@@ -72,9 +77,6 @@ const Navbar = () => {
                                 </Link>
                             </button>
                     }
-
-
-
                 </div>
             </div>
 
