@@ -23,7 +23,7 @@ const Sidebar = ({ closeSidebar }) => {
 
     const routes = [
         {
-            path: "/",
+            path: "/dashboard",
             name: "Dashboard",
             icon: <FaHome />,
         },

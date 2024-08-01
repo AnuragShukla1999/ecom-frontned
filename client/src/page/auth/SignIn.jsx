@@ -7,18 +7,14 @@ import { signin } from "../../redux/Slices/userSlice";
 
 
 const SignIn = () => {
-
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
 
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
-
     const { email, password } = formData;
-
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
@@ -28,22 +24,16 @@ const SignIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const res = await fetch('http://localhost:7070/api/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-
             const resData = await res.json();
-
-            console.log(resData.user);
-
-            dispatch(signin(resData.user))
-
+            console.log(resData);
+            dispatch(signin(resData.user));
             toast.success("Signed in successfully!");
-            
             navigate("/");
         } catch (error) {
             console.log(error);
