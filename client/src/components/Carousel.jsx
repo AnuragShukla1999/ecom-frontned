@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = ['Slide 1', 'Slide 2', 'Slide 3', 'Slide 4'];
-  const slideInterval = 3000;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -17,7 +16,7 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, slideInterval);
+    const intervalId = setInterval(nextSlide, 2000);
     return () => clearInterval(intervalId);
   }, []);
 

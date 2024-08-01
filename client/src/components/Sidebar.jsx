@@ -100,7 +100,7 @@ const Sidebar = ({ closeSidebar }) => {
     ];
 
     return (
-        <div className='fixed top-0 left-0 w-56 h-full bg-gray-800 text-white p-4'>
+        <div className='fixed top-0 left-0 w-56 h-full bg-gray-800 text-white p-4 z-10'>
             <div className='flex flex-row gap-1 w-full mt-3'>
                 <CgProfile className='text-2xl' />
                 <div>
