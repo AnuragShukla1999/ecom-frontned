@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTotalCartItems, increaseCartItem, decreaseCartItem, deleteCart, clearCart } from '../redux/Slices/cartSlice'; // Adjust the import path as necessary
+import { increaseCartItem, decreaseCartItem, deleteCart, clearCart } from '../redux/Slices/cartSlice'; // Adjust the import path as necessary
 
 const Cart = ({ closeCartComponent }) => {
   const dispatch = useDispatch();
