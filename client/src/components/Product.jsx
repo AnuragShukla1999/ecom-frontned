@@ -18,7 +18,6 @@ const Product = () => {
     };
 
     useEffect(() => {
-
         const indexOfLastProduct = currentPage * ProductsPerPage;
         const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage;
         setCurrentProducts(products.slice(indexOfFirstProduct, indexOfLastProduct));
