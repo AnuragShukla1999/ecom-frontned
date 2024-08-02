@@ -28,8 +28,8 @@ const Product = () => {
     const totalPages = Math.ceil(products.length / ProductsPerPage);
 
 
-    const handleAddToCart = () => {
-        dispatch(addToCart())
+    const handleAddToCart = (product) => {
+        dispatch(addToCart({ ...product, quantity: 1 }));
     }
 
     return (
@@ -44,7 +44,7 @@ const Product = () => {
                         <p className="text-gray-600 mb-2">Rating: {product.rating}</p>
                         <p className="text-gray-600">Stock: {product.stock}</p>
 
-                        <button className='bg-blue-950 text-white p-2 rounded-xl'>Add To Cart</button>
+                        <button className='bg-blue-950 text-white p-2 rounded-xl' onClick={() => handleAddToCart(product)}>Add To Cart</button>
                     </div>
                 ))}
             </div>
