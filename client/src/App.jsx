@@ -10,6 +10,7 @@ import Home from "./page/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./page/Dashborad/Dashboard";
 
+
 function App() {
 
   return (
