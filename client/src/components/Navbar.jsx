@@ -7,11 +7,15 @@ import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/Slices/userSlice';
+import { selectTotalCartItems } from '../redux/Slices/cartSlice';
+import Cart from './Cart';
 
 const Navbar = () => {
 
     const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state) => state.user);
+
+    const totalCartItem = useSelector(selectTotalCartItems)
 
     const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -28,6 +32,19 @@ const Navbar = () => {
 
     const logoutFun = () => {
         dispatch(logout())
+    }
+
+
+
+    const [openCart, setOpenCart] = useState(false);
+
+    const OpenCartComponent = () => {
+        setOpenCart(prev => !prev);
+    };
+
+
+    const closeCartComponent = () => {
+        setOpenCart(false)
     }
 
 
@@ -57,8 +74,8 @@ const Navbar = () => {
                 </div>
 
                 <div className='relative'>
-                    <FaShoppingCart className='text-2xl' />
-                    <span className='bg-red-500 w-6 text-white rounded-xl absolute bottom-4 left-4 flex items-center justify-center'>2</span>
+                    <FaShoppingCart className='text-2xl' onClick={OpenCartComponent} />
+                    <span className='bg-red-500 w-6 text-white rounded-xl absolute bottom-4 left-4 flex items-center justify-center'>{totalCartItem}</span>
                 </div>
 
                 <div>
@@ -80,6 +97,13 @@ const Navbar = () => {
             {/* Sidebar */}
             {openSidebar && (
                 <Sidebar closeSidebar={closeSidebar} />
+            )}
+
+
+
+            {/* Cart */}
+            {openCart && (
+                <Cart closeCartComponent={closeCartComponent} />
             )}
         </div>
     )
