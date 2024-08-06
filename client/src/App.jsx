@@ -9,18 +9,21 @@ import SignUp from "./page/auth/SignUp";
 import Home from "./page/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./page/Dashborad/Dashboard";
+import UserProfile from "./page/UserProfile";
+import Layout from "./Layout/Layout";
 
 
 function App() {
 
   return (
-    <>
+    <Layout>
       <BrowserRouter>
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/user-profile" element={<UserProfile/>} />
 
 
           <Route element={<PrivateRoute/>}>
@@ -28,7 +31,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </Layout>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Carousel = () => {
-  
+
   const slideData = {
     "slides": [
       {
@@ -20,7 +20,7 @@ const Carousel = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slides = slideData.slides; 
+  const slides = slideData.slides;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -36,27 +36,43 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
-      <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {slides.map((slide, index) => (
-          <div key={index} className="flex-shrink-0 w-full h-72 bg-gray-300 flex items-center justify-center">
-            <img src={slide.src} alt={slide.alt} className="w-full h-full" />
-          </div>
-        ))}
+    <div className="relative w-screen h-72 overflow-hidden">
+  <div
+    className="flex transition-transform duration-500 ease-in-out"
+    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+  >
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 w-screen h-full bg-gray-300 flex items-center justify-center overflow-hidden"
+      >
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
+        />
       </div>
-      <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-        onClick={prevSlide}
-      >
-        &#10094;
-      </button>
-      <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-        onClick={nextSlide}
-      >
-        &#10095;
-      </button>
-    </div>
+    ))}
+  </div>
+
+  <button
+    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
+    onClick={prevSlide}
+    aria-label="Previous Slide"
+  >
+    &#10094;
+  </button>
+
+  <button
+    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
+    onClick={nextSlide}
+    aria-label="Next Slide"
+  >
+    &#10095;
+  </button>
+</div>
+
+
   );
 };
 

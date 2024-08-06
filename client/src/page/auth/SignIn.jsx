@@ -32,52 +32,76 @@ const SignIn = () => {
             });
             const resData = await res.json();
             console.log(resData);
-            dispatch(signin(resData.user));
-            toast.success("Signed in successfully!");
-            navigate("/");
+
+            if (res.ok) {
+                dispatch(signin(resData.user));
+                toast.success("Signed in successfully!");
+                navigate("/");
+            } else {
+                toast.error("User not found")
+            }
         } catch (error) {
             console.log(error);
         }
     }
 
     return (
-        <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '400px', margin: '0 auto', padding: '20px', border: '1px solid #ccc', borderRadius: '10px', backgroundColor: '#f9f9f9', marginTop: '50px' }} onSubmit={handleSubmit} >
-            <div style={{ width: '100%', marginBottom: '15px' }}>
-                <label htmlFor="email" style={{ display: 'block', marginBottom: '5px', color: '#333', fontWeight: 'bold' }}>Email</label>
+        <form
+            className="flex flex-col items-center w-full max-w-md mx-auto p-5 border border-gray-300 rounded-lg bg-gray-100 mt-12"
+            onSubmit={handleSubmit}
+        >
+            <div className="w-full mb-4">
+                <label
+                    htmlFor="email"
+                    className="block mb-2 text-gray-700 font-bold"
+                >
+                    Email
+                </label>
                 <input
                     type="email"
                     name="email"
                     placeholder="enter email"
-                    style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #ccc', boxSizing: 'border-box' }}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md box-border"
                     value={email}
                     onChange={handleChange}
                 />
             </div>
 
-            <div style={{ width: '100%', marginBottom: '15px' }}>
-                <label htmlFor="password" style={{ display: 'block', marginBottom: '5px', color: '#333', fontWeight: 'bold' }}>Password</label>
+            <div className="w-full mb-4">
+                <label
+                    htmlFor="password"
+                    className="block mb-2 text-gray-700 font-bold"
+                >
+                    Password
+                </label>
                 <input
                     type="password"
                     name="password"
                     placeholder="enter password"
-                    style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #ccc', boxSizing: 'border-box' }}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md box-border"
                     value={password}
                     onChange={handleChange}
                 />
             </div>
 
-            <button type="submit" style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+            <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer"
+            >
                 Sign In
             </button>
 
-            <Link to="/signup">
-                SignUp
-            </Link>
-
-            <Link to="/">
-                Home
-            </Link>
+            <div className="mt-4">
+                <Link to="/signup" className="text-blue-500 hover:underline">
+                    SignUp
+                </Link>
+                <span className="mx-2 text-gray-600">|</span>
+                <Link to="/" className="text-blue-500 hover:underline">
+                    Home
+                </Link>
+            </div>
         </form>
+
     );
 }
 
