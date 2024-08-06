@@ -34,7 +34,7 @@ const SignIn = () => {
             console.log(resData);
 
             if (res.ok) {
-                dispatch(signin(resData.user));
+                dispatch(signin(resData.token));
                 toast.success("Signed in successfully!");
                 navigate("/");
             } else {
