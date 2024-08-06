@@ -12,8 +12,10 @@ const Product = () => {
 
     const dispatch = useDispatch();
 
+    var a = 5;
+     
 
-    const paginate = (pageNumber) => {
+    const paginate = (pageNumber) => { 
         setCurrentPage(pageNumber);
     };
 
