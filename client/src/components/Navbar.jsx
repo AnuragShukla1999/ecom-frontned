@@ -15,6 +15,8 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state) => state.user);
 
+    // const isUser = localStorage.getItem('currentUser');
+
     const totalCartItem = useSelector(selectTotalCartItems)
 
     const [openSidebar, setOpenSidebar] = useState(false);

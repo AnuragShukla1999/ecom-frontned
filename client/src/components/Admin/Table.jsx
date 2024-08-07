@@ -1,11 +1,10 @@
-// src/DashboardTable.js
+
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid'; // For unique IDs
 
 const initialData = [
     { id: nanoid(), name: 'John Doe', email: 'john@example.com' },
-    { id: nanoid(), name: 'Jane Smith', email: 'jane@example.com' },
-    // Add more initial data as needed
+    { id: nanoid(), name: 'Jane Smith', email: 'jane@example.com' }
 ];
 
 const DashboardTable = () => {
