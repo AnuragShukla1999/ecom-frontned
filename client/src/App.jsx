@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./page/Dashborad/Dashboard";
 import UserProfile from "./page/UserProfile";
 import Layout from "./Layout/Layout";
+import Navbar from "./components/Navbar";
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
   return (
     <Layout>
       <BrowserRouter>
+
+        <Navbar/>
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />

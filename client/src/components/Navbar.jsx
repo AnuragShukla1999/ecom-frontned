@@ -51,13 +51,15 @@ const Navbar = () => {
     return (
         <div className='flex items-center justify-between p-4 bg-gray-900 text-white shadow-md'>
             {/* Logo and Sidebar Toggle */}
-            <div onClick={OpenSideBar} className='flex items-center gap-4 cursor-pointer'>
-                <FaBars className='text-2xl hover:text-gray-400 transition-colors duration-200' />
-                <img
-                    src="https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg"
-                    alt="Logo"
-                    className='w-32 h-auto'
-                />
+            <div className='flex items-center gap-4 cursor-pointer'>
+                <FaBars onClick={OpenSideBar} className='text-2xl hover:text-gray-400 transition-colors duration-200' />
+                <Link to='/'>
+                    <img
+                        src="https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg"
+                        alt="Logo"
+                        className='w-32 h-auto'
+                    />
+                </Link>
             </div>
 
             {/* Search Bar */}

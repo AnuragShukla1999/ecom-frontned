@@ -7,7 +7,7 @@ import Product from '../components/Product'
 const Home = () => {
   return (
     <Layout>
-        <Navbar/>
+        {/* <Navbar/> */}
 
         <Carousel/>
 
