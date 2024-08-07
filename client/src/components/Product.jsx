@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-// import { products } from '../ProductData.js'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/Slices/cartSlice.jsx';
+
+import { toast } from 'react-toastify';
 
 const ProductsPerPage = 5;
 
 const Product = () => {
+
+
+    // const { products } = useSelector((state) => state.product)
+    const { isAuthenticated } = useSelector((state) => state.user);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [currentProducts, setCurrentProducts] = useState([]);
 
@@ -13,7 +19,6 @@ const Product = () => {
     const dispatch = useDispatch();
 
     var a = 5;
-
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -29,8 +34,26 @@ const Product = () => {
     const totalPages = Math.ceil(currentProducts.length / ProductsPerPage);
 
 
-    const handleAddToCart = (product) => {
-        dispatch(addToCart({ ...product, quantity: 1 }));
+    const handleAddToCart = async (product) => {
+        if (isAuthenticated) {
+
+            try {
+                const res = await fetch("http://localhost:7070/api/addtocart", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        userId,
+                        productId: item.id,
+                        quantity: item.quantity,
+                    }),
+                })
+            } catch (error) {
+
+            }
+            dispatch(addToCart({ ...product, quantity: 1 }));
+        } else {
+            toast.error('Please log in first to add items to the cart.');
+        }
     };
 
     // const [products, setProducts] = useState([]);
@@ -44,6 +67,8 @@ const Product = () => {
             console.log(resData);
 
             setCurrentProducts(resData);
+
+            // dispatch(products(resData))
         } catch (error) {
             console.log("Error", error)
         }

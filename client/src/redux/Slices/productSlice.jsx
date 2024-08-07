@@ -18,7 +18,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 
 
 const productSlice = createSlice({
-  name: 'products',
+  name: 'product',
   initialState,
   reducers: {
     setProductsFromLocalStorage(state) {
@@ -51,13 +51,13 @@ const productSlice = createSlice({
 });
 
 // Selector to get all products
-export const selectAllProducts = (state) => state.products.products;
+export const selectAllProducts = (state) => state.product.products;
 
 // Selector to get loading status
-export const selectProductStatus = (state) => state.products.status;
+export const selectProductStatus = (state) => state.product.status;
 
 // Selector to get any fetch error
-export const selectProductError = (state) => state.products.error;
+export const selectProductError = (state) => state.product.error;
 
 // Export actions from the slice
 export const { setProductsFromLocalStorage, clearProducts } = productSlice.actions;
