@@ -8,6 +8,7 @@ const ProductsPerPage = 5;
 
 const Product = () => {
 
+    const userId = 1;
 
     // const { products } = useSelector((state) => state.product)
     const { isAuthenticated } = useSelector((state) => state.user);
@@ -43,14 +44,19 @@ const Product = () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         userId,
-                        productId: item.id,
-                        quantity: item.quantity,
+                        productId: product.id,
+                        quantity: product.quantity,
                     }),
-                })
-            } catch (error) {
+                });
 
+                if (res.ok) {
+                    const resData = await res.json();
+                    console.log('Product added to cart:', resData);
+                    dispatch(addToCart({ ...product, quantity: 1 }));
+                }
+            } catch (error) {
+                console.error('Error adding to cart:', error);
             }
-            dispatch(addToCart({ ...product, quantity: 1 }));
         } else {
             toast.error('Please log in first to add items to the cart.');
         }
