@@ -51,16 +51,18 @@ const Navbar = () => {
 
 
     return (
-        <div className='flex items-center justify-between p-4 bg-gray-900 text-white shadow-md'>
+        <div className='flex items-center justify-between p-4 bg-gray-200 text-white shadow-md'>
             {/* Logo and Sidebar Toggle */}
             <div className='flex items-center gap-4 cursor-pointer'>
-                <FaBars onClick={OpenSideBar} className='text-2xl hover:text-gray-400 transition-colors duration-200' />
+                <FaBars onClick={OpenSideBar} className='text-2xl text-gray-600 hover:text-gray-800 transition-colors duration-200' />
                 <Link to='/'>
-                    <img
+                    {/* <img
                         src="https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg"
                         alt="Logo"
                         className='w-32 h-auto'
-                    />
+                    /> */}
+
+                    <h4 className='text-black'>LO<span className='text-yellow-500'>GO</span>HERE</h4>
                 </Link>
             </div>
 
@@ -80,12 +82,12 @@ const Navbar = () => {
             <div className='flex items-center gap-6'>
                 <div className='relative cursor-pointer'>
                     <Link to="/user-profile">
-                        <CgProfile className='text-2xl hover:text-gray-400 transition-colors duration-200' />
+                        <CgProfile className='text-2xl text-black hover:text-gray-400 transition-colors duration-200' />
                     </Link>
                 </div>
 
                 <div className='relative cursor-pointer' onClick={OpenCartComponent}>
-                    <FaShoppingCart className='text-2xl hover:text-gray-400 transition-colors duration-200' />
+                    <FaShoppingCart className='text-2xl text-black hover:text-gray-400 transition-colors duration-200' />
                     <span className='absolute -top-4 -right-4 bg-red-600 text-white w-6 h-6 flex items-center justify-center text-xs font-semibold rounded-full'>
                         {totalCartItem}
                     </span>
