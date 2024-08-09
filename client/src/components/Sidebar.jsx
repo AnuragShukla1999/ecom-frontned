@@ -243,7 +243,7 @@ const Sidebar = ({ closeSidebar }) => {
     };
 
     const handleClick = () => {
-        closeSidebar(); // Close sidebar on any link click
+        closeSidebar(); 
     };
 
     const routes = [
@@ -325,7 +325,7 @@ const Sidebar = ({ closeSidebar }) => {
     ];
 
     return (
-        <div className='fixed top-0 left-0 w-72 h-full bg-gray-800 text-white p-4 z-10 shadow-lg transition-transform duration-300 ease-in-out transform' style={{ transform: `translateX(${closeSidebar ? '0' : '-100%'})` }}>
+        <div className='fixed top-0 left-0 w-64 h-full bg-white text-black p-4 z-10 shadow-lg transition-transform duration-300 ease-in-out transform' style={{ transform: `translateX(${closeSidebar ? '0' : '-100%'})` }}>
             <div className='flex items-center justify-between mb-6'>
                 <div className='flex items-center gap-2'>
                     <CgProfile className='text-3xl' />
@@ -336,10 +336,10 @@ const Sidebar = ({ closeSidebar }) => {
                 </div>
 
                 <button onClick={closeSidebar} className='text-3xl text-white hover:text-gray-400 transition-colors duration-200'>
-                    <FaWindowClose />
+                    <FaWindowClose className='text-gray-500 hover:text-gray-700' />
                 </button>
             </div>
-
+ 
             <ul className='flex flex-col gap-4'>
                 {routes.map((route) => (
                     <li key={route.path}>

@@ -62,7 +62,7 @@ const Navbar = () => {
                         className='w-32 h-auto'
                     /> */}
 
-                    <h4 className='text-black'>LO<span className='text-yellow-500'>GO</span>HERE</h4>
+                    <h4 className='text-black font-extrabold'>LO<span className='text-yellow-500'>GO</span>HERE</h4>
                 </Link>
             </div>
 

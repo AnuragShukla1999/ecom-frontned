@@ -36,43 +36,43 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-72 overflow-hidden">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-screen h-full bg-gray-300 flex items-center justify-center overflow-hidden"
-          >
-            <img
-              src={slide.src}
-              alt={slide.alt}
-              className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
-            />
-          </div>
-        ))}
+    <div className='flex items-center justify-center m-6'>
+      <div className="relative w-full h-80 overflow-hidden rounded-3xl">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-screen h-full bg-gray-300 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
+              />
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+        >
+          &#10094;
+        </button>
+
+        <button
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
+          onClick={nextSlide}
+          aria-label="Next Slide"
+        >
+          &#10095;
+        </button>
       </div>
-
-      <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
-        onClick={prevSlide}
-        aria-label="Previous Slide"
-      >
-        &#10094;
-      </button>
-
-      <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
-        onClick={nextSlide}
-        aria-label="Next Slide"
-      >
-        &#10095;
-      </button>
     </div>
-
-
   );
 };
 

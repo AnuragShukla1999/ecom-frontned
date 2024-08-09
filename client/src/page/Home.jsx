@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Layout from '../Layout/Layout'
 import Carousel from '../components/Carousel'
 import Product from '../components/Product'
+import TopCategories from '../components/TopCategories'
 
 const Home = () => {
   return (
@@ -10,6 +11,8 @@ const Home = () => {
         {/* <Navbar/> */}
 
         <Carousel/>
+
+        <TopCategories/>
 
         <Product/>
     </Layout>
