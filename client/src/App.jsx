@@ -19,7 +19,6 @@ function App() {
   return (
     <Layout>
       <BrowserRouter>
-
         <Navbar/>
         <ToastContainer />
         <Routes>
